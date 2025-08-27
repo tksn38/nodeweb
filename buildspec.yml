@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+    commands:
+      - echo "【安装运行时】node.js 22.x"
+      - npm install
+  pre_build:
+    commands:
+      - echo "【编译前】pre_build"
+  build:
+    commands:
+      - echo "【编译开始时间】`date`"
+  post_build:
+    commands:
+      - echo "【编译完成时间】`date`"
+artifacts:
+  files:
+    # - '**/*'
+    - app.js
+    - app.json
+    - package.json
+    - appspec.yml
+    - public/*
+    - scripts/*
+  name: nodeweb-release
