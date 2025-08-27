@@ -1,0 +1,10 @@
+{
+    "uid": "nodeweb",
+    "append": true,
+    "watch": true,
+    "script": "app.js",
+    "sourceDir": "/var/www/html",
+    "logFile": "/var/log/nodeweb_forever.log",
+    "outFile": "/var/log/nodeweb_out.log",
+    "errFile": "/var/log/nodeweb_error.log"
+}
