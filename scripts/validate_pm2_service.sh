@@ -14,14 +14,14 @@ else
     exit 1
 fi
 
-# HTTPレスポンス確認
-echo "Testing HTTP response..."
+# HTTPレスポンス確認（ポート80）
+echo "Testing HTTP response on port 80..."
 sleep 5  # アプリケーション起動待ち
 
-if curl -f -s http://localhost:3000/ > /dev/null; then
-    echo "✅ HTTP service is responding"
+if curl -f -s http://localhost:80/ > /dev/null; then
+    echo "✅ HTTP service is responding on port 80"
 else
-    echo "❌ HTTP service is not responding"
+    echo "❌ HTTP service is not responding on port 80"
     # 詳細ログ出力
     echo "PM2 logs:"
     pm2 logs express-app --lines 10
