@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Setting up Node.js environment..."
+echo "Setting up Node.js environment with PM2..."
 
 # Node.jsリポジトリ追加とインストール
 curl -sL https://rpm.nodesource.com/setup_22.x | sudo bash -
@@ -19,7 +19,10 @@ mkdir -p /var/www/html
 chown -R root:root /var/www/html
 chmod -R 755 /var/www/html
 
-# foreverのグローバルインストール
-npm install -g forever
+# PM2のグローバルインストール
+npm install -g pm2
 
-echo "Node.js setup completed successfully"
+# PM2の初期設定
+pm2 install pm2-logrotate
+
+echo "Node.js setup with PM2 completed successfully"
