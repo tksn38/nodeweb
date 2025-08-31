@@ -23,12 +23,12 @@ echo "Starting $APP_FILE with PM2..."
 export NODE_ENV=production
 export PORT=80  # app.jsではポート80を使用
 
-# PM2でアプリケーション起動
-pm2 start $APP_FILE --name "express-app" --instances 1 --env production
+# PM2でアプリケーション起動（root権限でポート80使用）
+sudo pm2 start $APP_FILE --name "express-app" --instances 1
 
-# PM2設定保存（自動起動用）
-pm2 save
-pm2 startup
+# PM2設定保存（root権限）
+sudo pm2 save
+sudo pm2 startup
 
 echo "Application started successfully with PM2"
 echo "PM2 status:"
